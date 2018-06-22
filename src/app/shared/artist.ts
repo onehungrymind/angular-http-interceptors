@@ -1,9 +1,12 @@
-import { Album } from './album';
-
 export interface Artist {
-  id: number;
+  external_urls: { spotify: string };
+  followers: { href: string, total: number };
+  genres: string[];
+  href: string;
+  id: string;
+  images: string[];
   name: string;
-  genres: string;
-  images: string;
-  albums: Album[];
+  popularity: number;
+  type: string;
+  uri: string;
 }

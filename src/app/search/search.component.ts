@@ -18,10 +18,15 @@ export class SearchComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.getAndSetAccessToken();
+  }
+
+  getAndSetAccessToken() {
     const accessToken = this.route.snapshot.fragment
       .split('access_token=')[1]
       .split('&token')[0];
     this.spotifyService.setToken(accessToken);
+    localStorage.setItem('access_token', accessToken);
   }
 
   searchMusic() {
