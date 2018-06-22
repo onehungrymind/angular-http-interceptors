@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { ActivatedRoute } from '@angular/router';
 
 const BASE_URL = 'https://api.spotify.com/v1/';
 
