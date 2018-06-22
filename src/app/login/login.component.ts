@@ -12,4 +12,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  login() {
+    // tslint:disable-next-line:max-line-length
+    (<any>window).location = 'https://accounts.spotify.com/authorize?client_id=da88c95033a84b2ab047c9fbf69555be&response_type=token&redirect_uri=http://localhost:4205/search';
+  }
+
 }

@@ -1,0 +1,21 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.login-card {
+  margin-top: 25px;
+  grid-column: 2/3;
+  grid-row: 1;
+}
+
+mat-card {
+  padding-top: 0;
+  margin-bottom: 2px;
+}
+
+mat-card-actions {
+  margin-left: 0;
+}
