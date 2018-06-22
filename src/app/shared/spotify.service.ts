@@ -9,7 +9,7 @@ const BASE_URL = 'https://api.spotify.com/v1/';
 export class SpotifyService {
   access_token;
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) {}
+  constructor(private http: HttpClient) {}
 
   private buildHeaders() {
     let headers = new HttpHeaders();
