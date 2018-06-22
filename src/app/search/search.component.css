@@ -1,0 +1,39 @@
+mat-card {
+  padding-top: 0;
+  padding-bottom: 35px;
+}
+
+mat-card-content {
+  padding: 15px 0;
+}
+
+mat-card-content p {
+  margin-left: 10px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.home-card {
+  grid-column: 3/6;
+  grid-row: 1;
+}
+
+.artist-card {
+  grid-column: 3/6;
+  grid-row: 2;
+  margin: 10px;
+}
+
+.mute {
+  color: rgba(0, 0, 0, 0.555);
+  margin-left: 20px !important;
+}
+
+.left {
+  display: block;
+}
