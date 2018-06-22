@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { clientId } from '../../environments/client';
+import { clientId } from '../../../client';
 
 @Component({
   selector: 'app-login',
