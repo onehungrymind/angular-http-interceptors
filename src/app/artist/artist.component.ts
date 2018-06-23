@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../shared/spotify.service';
 import { Artist } from '../shared/artist';
-import { Album } from '../shared/album';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 
