@@ -23,7 +23,6 @@ export class ArtistComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.authService.getToken();
     this.route.params.pipe(map(params => params['id'])).subscribe(id => {
       this.spotifyService.getArtist(id).subscribe(artist => {
         this.artist = artist;

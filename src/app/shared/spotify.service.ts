@@ -15,7 +15,7 @@ export class SpotifyService {
   }
 
   searchMusic(str: string, type = 'artist') {
-    const URL = `${BASE_URL}search`;
+    const URL = `${BASE_URL}search/`;
     let params = new HttpParams();
     params = params.append('q', str);
     params = params.append('type', type);
@@ -27,6 +27,7 @@ export class SpotifyService {
 
   getArtist(id: string) {
     const URL = `${BASE_URL}artists`;
+
     return this.http.get<any>(`${URL}/${id}`)
       .pipe(map(res => res));
   }

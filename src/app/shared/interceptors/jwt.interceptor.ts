@@ -25,7 +25,7 @@ export class JwtInterceptor implements HttpInterceptor {
       }
     }, (err: any) => {
       if (err instanceof HttpErrorResponse) {
-        if (err.status === 401) {
+        if (err.status === 400) {
           this.route.navigateByUrl('/login').then(nav => {
             console.log('NAV', nav);
           });
