@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../shared/spotify.service';
 import { Artist } from '../shared/artist';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-search',
@@ -11,22 +12,16 @@ import { ActivatedRoute } from '@angular/router';
 export class SearchComponent implements OnInit {
   searchStr: string;
   searchRes: Artist[];
+  access_token: string;
 
-  constructor(
-    private spotifyService: SpotifyService,
-    private route: ActivatedRoute
-  ) {}
+  constructor(private authService: AuthService, private spotifyService: SpotifyService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.getAndSetAccessToken();
-  }
-
-  getAndSetAccessToken() {
-    const accessToken = this.route.snapshot.fragment
+    this.access_token = this.route.snapshot.fragment
       .split('access_token=')[1]
       .split('&token')[0];
-    this.spotifyService.setToken(accessToken);
-    localStorage.setItem('access_token', accessToken);
+    localStorage.setItem('access_token', this.access_token);
+    this.authService.getToken();
   }
 
   searchMusic() {

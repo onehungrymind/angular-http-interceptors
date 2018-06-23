@@ -15,6 +15,7 @@ import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SearchComponent } from './search/search.component';
+import { ArtistComponent } from './artist/artist.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { SearchComponent } from './search/search.component';
   declarations: [
     AppComponent,
     SearchComponent,
-    LoginComponent
+    LoginComponent,
+    ArtistComponent
   ],
   providers: [AuthService, SpotifyService, {
     provide: HTTP_INTERCEPTORS,

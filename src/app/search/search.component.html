@@ -24,7 +24,7 @@
       <mat-card *ngIf="searchRes">
         <mat-list>
           <mat-list-item *ngFor="let res of searchRes">
-            <h3>{{res.name}}</h3>
+            <h3><a routerLink="/artist/{{res.id}}">{{res.name}}</a></h3>
             <p> See in <a [href]="res.external_urls.spotify">Spotify</a></p>
           </mat-list-item>
         </mat-list>

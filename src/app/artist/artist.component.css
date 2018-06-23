@@ -1,0 +1,43 @@
+mat-card {
+  padding-top: 0;
+  padding-bottom: 35px;
+}
+
+mat-card-header {
+  justify-content: center;
+}
+
+mat-card-content {
+  padding: 15px 0;
+}
+
+.main-image img {
+  border-radius: 50%;
+  width: 80%;
+  height: 80%;
+  margin-left: 10%;
+  background-size: cover;
+}
+
+.albums-images {
+  border-radius: 10%;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.artist-card {
+  grid-column: 3/6;
+  grid-row: 1;
+  margin-bottom: 25%;
+  margin-top: 20px;
+}
+
+.mute {
+  color: rgba(0, 0, 0, 0.555);
+  margin-left: 20px !important;
+}
