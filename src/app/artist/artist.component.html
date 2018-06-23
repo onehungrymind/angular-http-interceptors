@@ -14,16 +14,6 @@
         <p *ngIf="artist.genres.length > 0">
           Genres: <span *ngFor="let art of artist.genres">{{art}},</span>
         </p>
-        <mat-card-content>
-          <h1>Albums:</h1>
-          <hr>
-          <div *ngFor="let album of albums">
-            <div *ngIf="album.images.length > 0">
-              <h2>{{album.name}}</h2>
-              <img class="albums-images" [src]="album.images[0].url" routerLink="/album/{{album.id}}">
-            </div>
-          </div>
-        </mat-card-content>
       </mat-card>
     </div>
   </div>

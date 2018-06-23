@@ -7,10 +7,6 @@ mat-card-header {
   justify-content: center;
 }
 
-mat-card-content {
-  padding: 15px 0;
-}
-
 .main-image img {
   border-radius: 50%;
   width: 80%;

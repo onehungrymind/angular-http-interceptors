@@ -7,7 +7,6 @@ import {
   HttpResponse,
   HttpErrorResponse
 } from '@angular/common/http';
-import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -15,7 +14,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
 
-  constructor(public auth: AuthService, private route: Router) { }
+  constructor(private route: Router) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request)

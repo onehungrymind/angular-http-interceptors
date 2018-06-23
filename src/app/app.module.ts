@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { AppMaterialModule } from './app-material.module';
 
-import { AuthService } from './shared/auth.service';
 import { SpotifyService } from './shared/spotify.service';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
@@ -32,7 +31,7 @@ import { ArtistComponent } from './artist/artist.component';
     LoginComponent,
     ArtistComponent
   ],
-  providers: [AuthService, SpotifyService, {
+  providers: [SpotifyService, {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true

@@ -4,7 +4,6 @@ import { Artist } from '../shared/artist';
 import { Album } from '../shared/album';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-artist',
@@ -14,12 +13,10 @@ import { AuthService } from '../shared/auth.service';
 export class ArtistComponent implements OnInit {
   id: string;
   artist: Artist;
-  albums: Album[];
 
   constructor(
     private spotifyService: SpotifyService,
-    private route: ActivatedRoute,
-    private authService: AuthService
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
