@@ -29,6 +29,6 @@ export class SearchComponent implements OnInit {
   }
 
   selectArtist(artist: string) {
-    window.location.href = artist;
+    window.open(artist, '_blank');
   }
 }
