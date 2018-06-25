@@ -6,7 +6,6 @@ hr {
   width: 80%;
   border: 0;
   height: 1px;
-  background: #ff4081;
   background-image: linear-gradient(to right, #ff40806e, #ff4081, #ff40806e);
 }
 
