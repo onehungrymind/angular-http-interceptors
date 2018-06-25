@@ -29,7 +29,8 @@ export class SearchComponent implements OnInit {
   }
 
   selectArtist(artist: string) {
-    window.history.replaceState({}, document.title, 'http://localhost:4200/search');
+    const replace = `${window.location.protocol}//${window.location.host}/search`;
+    window.history.replaceState({}, document.title, replace);
     window.open(artist, '_blank');
   }
 }
