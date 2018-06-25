@@ -1,5 +1,5 @@
 export interface Artist {
-  items: any;
+  items: any[];
   artists: any;
   external_urls: { spotify: string };
   followers?: { href: string, total: number };

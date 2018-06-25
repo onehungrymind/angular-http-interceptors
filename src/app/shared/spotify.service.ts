@@ -25,11 +25,4 @@ export class SpotifyService {
     return this.http.get<Artist>(`${URL}`, { params })
       .pipe(map(res => res));
   }
-
-  getArtist(id: string) {
-    const URL = `${BASE_URL}/artists`;
-
-    return this.http.get<any>(`${URL}/${id}`)
-      .pipe(map(res => res));
-  }
 }
