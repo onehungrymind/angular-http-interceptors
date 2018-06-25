@@ -12,6 +12,7 @@ export class SearchComponent implements OnInit {
   searchRes: Artist[];
   searchStr: string;
   access_token: string;
+  replace = `${window.location.protocol}//${window.location.host}/search`;
 
   constructor(private spotifyService: SpotifyService,
               private route: ActivatedRoute) { }
@@ -21,6 +22,7 @@ export class SearchComponent implements OnInit {
       .split('access_token=')[1]
       .split('&token')[0];
     localStorage.setItem('access_token', this.access_token);
+    window.history.replaceState({}, document.title, this.replace);
   }
 
   searchMusic() {
@@ -29,8 +31,7 @@ export class SearchComponent implements OnInit {
   }
 
   selectArtist(artist: string) {
-    const replace = `${window.location.protocol}//${window.location.host}/search`;
-    window.history.replaceState({}, document.title, replace);
+    window.history.replaceState({}, document.title, this.replace);
     window.open(artist, '_blank');
   }
 }
