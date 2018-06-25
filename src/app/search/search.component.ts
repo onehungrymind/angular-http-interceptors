@@ -29,6 +29,7 @@ export class SearchComponent implements OnInit {
   }
 
   selectArtist(artist: string) {
+    window.history.replaceState({}, document.title, 'http://localhost:4200/search');
     window.open(artist, '_blank');
   }
 }

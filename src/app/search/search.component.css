@@ -26,6 +26,7 @@ mat-form-field {
 .search-card {
   grid-column: 2/7;
   grid-row: 1;
+  margin-top: 10px;
 }
 
 .artist-card {
