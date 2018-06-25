@@ -37,3 +37,13 @@ p.followers {
   margin-left: 3px;
   color: rgba(0, 0, 0, 0.555);
 }
+
+img.mat-list-icon {
+  border-radius: 5px !important;
+  width: 100px !important;
+  height: 100px !important;
+}
+
+mat-list-item {
+  height: 100% !important;
+}

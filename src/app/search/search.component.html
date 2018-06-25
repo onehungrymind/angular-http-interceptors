@@ -25,9 +25,7 @@
         <h2 mat-subheader>Artists</h2>
         <mat-list-item *ngFor="let res of searchRes" class="mat-list-option"
                        (click)="selectArtist(res.external_urls.spotify)">
-          <div mat-list-icon>
-            <img [src]="res.images[0]?.url"/>
-          </div>
+          <img mat-list-icon [src]="res.images[0]?.url ? res.images[0]?.url : '../../assets/spotify.svg'"/>
           <h3 mat-line>{{res.name}}</h3>
           <p mat-line class="followers">
             {{res.followers.total | number:'1.'}} total followers.
