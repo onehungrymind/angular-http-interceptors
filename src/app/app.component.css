@@ -1,9 +1,3 @@
-:host {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
 mat-toolbar {
   z-index: 1;
 }
@@ -14,6 +8,10 @@ mat-sidenav {
 
 span {
   font-size: 25px;
+}
+
+span.title {
+  margin: 0 auto;
 }
 
 span:hover {
@@ -33,7 +31,7 @@ a.ventur {
 .nav-link {
   color: rgba(0,0,0,.54);
   display: flex;
-  align-items:center;
+  align-items: center;
   padding-top: 5px;
   padding-bottom: 5px;
 }

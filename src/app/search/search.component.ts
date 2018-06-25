@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../shared/spotify.service';
 import { Artist } from '../shared/artist';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -25,5 +25,9 @@ export class SearchComponent implements OnInit {
   searchMusic() {
     this.spotifyService.searchMusic(this.searchStr)
       .subscribe(res => this.searchRes = res.artists.items);
+  }
+
+  selectArtist(artist: string) {
+    window.location.href = artist;
   }
 }

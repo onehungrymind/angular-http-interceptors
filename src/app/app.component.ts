@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'ngSpot';
   links = [
-    { path: '/login', icon: 'home', label: 'Home' },
-    { path: '/search', icon: 'library_music', label: 'Search Music' },
+    { path: '/login', icon: 'home', label: 'Login' },
+    { path: '/search', icon: 'library_music', label: 'Search Artist' },
   ];
   constructor() {}
 

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Artist } from './artist';
 
-const BASE_URL = 'https://api.spotify.com/v1/';
+const BASE_URL = 'https://api.spotify.com/v1';
 
 @Injectable()
 export class SpotifyService {
@@ -14,19 +15,19 @@ export class SpotifyService {
     this.access_token = accessToken;
   }
 
-  searchMusic(str: string, type = 'artist') {
-    const URL = `${BASE_URL}search/`;
+  searchMusic(str: string) {
+    const URL = `${BASE_URL}/search/`;
     let params = new HttpParams();
-    params = params.append('q', str);
-    params = params.append('type', type);
-    params = params.append('limit', '20');
+    params = params.append('q', str)
+                   .append('type', 'artist')
+                   .append('limit', '20');
 
-    return this.http.get<any>(`${URL}`, { params })
+    return this.http.get<Artist>(`${URL}`, { params })
       .pipe(map(res => res));
   }
 
   getArtist(id: string) {
-    const URL = `${BASE_URL}artists`;
+    const URL = `${BASE_URL}/artists`;
 
     return this.http.get<any>(`${URL}/${id}`)
       .pipe(map(res => res));

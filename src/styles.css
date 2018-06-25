@@ -14,10 +14,6 @@ mat-sidenav-container {
   height: 100vh;
 }
 
-mat-toolbar-row {
-  justify-content: space-between;
-}
-
 mat-card {
   padding: 0;
   margin: 0;
