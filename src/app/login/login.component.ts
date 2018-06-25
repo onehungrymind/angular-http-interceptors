@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    // tslint:disable-next-line:max-line-length
-    (<any>window).location = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:4200/search`;
+    (<any>window).location =
+      `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:4200/search`;
   }
 
 }

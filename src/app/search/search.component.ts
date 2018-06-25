@@ -9,11 +9,12 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  searchStr: string;
   searchRes: Artist[];
+  searchStr: string;
   access_token: string;
 
-  constructor(private spotifyService: SpotifyService, private route: ActivatedRoute) {}
+  constructor(private spotifyService: SpotifyService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.access_token = this.route.snapshot.fragment

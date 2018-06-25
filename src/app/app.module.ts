@@ -29,15 +29,19 @@ import { SearchComponent } from './search/search.component';
     SearchComponent,
     LoginComponent
   ],
-  providers: [SpotifyService, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi: true
-  }, {
+  providers: [
+    SpotifyService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
-  }],
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
