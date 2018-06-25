@@ -41,7 +41,7 @@ p.followers {
 img.mat-list-icon {
   border-radius: 5px !important;
   width: 100px !important;
-  height: 100px !important;
+  height: auto !important;
 }
 
 mat-list-item {
