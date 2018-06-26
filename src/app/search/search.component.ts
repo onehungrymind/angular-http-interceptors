@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../shared/spotify.service';
 import { Artist } from '../shared/artist';
-import { ActivatedRoute } from '@angular/router';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { map, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
+import { map, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
@@ -18,7 +18,8 @@ export class SearchComponent implements OnInit {
 
   constructor(
     private spotifyService: SpotifyService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -30,7 +31,6 @@ export class SearchComponent implements OnInit {
 
   searchMusic() {
     this.searchControl.valueChanges.pipe(
-      tap(changes => console.log('Changes', changes)),
       debounceTime(500),
       distinctUntilChanged(),
       map((event: any) => event),
@@ -43,12 +43,10 @@ export class SearchComponent implements OnInit {
   }
 
   callback() {
-    const replace = `${window.location.protocol}//${window.location.host}/search`;
-
     this.access_token = this.route.snapshot.fragment
       .split('access_token=')[1]
       .split('&token')[0];
     localStorage.setItem('access_token', this.access_token);
-    window.history.replaceState({}, document.title, replace);
+    this.router.navigate(['/search'], { queryParams: {} });
   }
 }
