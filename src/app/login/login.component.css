@@ -16,6 +16,10 @@ mat-card {
   margin-bottom: 2px;
 }
 
+mat-card-title h1 {
+  margin-bottom: 0;
+}
+
 mat-card-actions {
   margin-left: 0;
 }
