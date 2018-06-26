@@ -7,10 +7,14 @@ mat-card-title h1 {
 }
 
 hr {
-  width: 80%;
+  width: 100%;
   border: 0;
   height: 1px;
   background-image: linear-gradient(to right, #ff408062, #ff40809d, #ff4081, #ff40809d, #ff408062);
+}
+
+hr.small {
+  width: 80%;
 }
 
 mat-form-field {
@@ -21,19 +25,19 @@ mat-form-field {
 
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(9, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
 }
 
 .search-card {
-  grid-column: 2/3;
+  grid-column: 4/7;
   grid-row: 1;
   margin-top: 10px;
 }
 
 .artist-card {
-  grid-column: 2/3;
+  grid-column: 4/7;
   grid-row: 2;
 }
 
@@ -50,4 +54,35 @@ img.mat-list-icon {
 
 mat-list-item {
   height: 100% !important;
+}
+
+/* smaller screens */
+@media screen and (max-width: 1600px) {
+  .search-card {
+    grid-column: 3/8;
+  }
+
+  .artist-card {
+    grid-column: 3/8;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .search-card {
+    grid-column: 2/9;
+  }
+
+  .artist-card {
+    grid-column: 2/9;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .search-card {
+    grid-column: 1/10;
+  }
+
+  .artist-card {
+    grid-column: 1/10;
+  }
 }

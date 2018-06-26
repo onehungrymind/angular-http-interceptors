@@ -4,7 +4,7 @@
       <mat-card-header>
         <mat-card-title>
           <h1>Search Artist</h1>
-          <hr align="left">
+          <hr align="left" class="small">
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
@@ -20,6 +20,7 @@
     <mat-card *ngIf="searchRes">
       <mat-list>
         <h2 mat-subheader>Artists</h2>
+        <hr align="middle">
         <mat-list-item *ngFor="let res of searchRes" class="mat-list-option"
                        (click)="selectArtist(res.external_urls.spotify)">
           <img mat-list-icon [src]="res.images[0]?.url ? res.images[0]?.url : '../../assets/spotify.svg'"/>
@@ -28,6 +29,7 @@
             {{res.followers.total | number:'1.'}} total followers.
           </p>
         </mat-list-item>
+        <hr align="middle">
       </mat-list>
     </mat-card>
   </div>
