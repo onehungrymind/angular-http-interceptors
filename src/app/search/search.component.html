@@ -8,13 +8,11 @@
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <form>
           <mat-form-field>
-            <input matInput type="text" name="search"
-            [(ngModel)]="searchStr" (keyup)="searchMusic()"
+            <input name="search" matInput type="text"
+            [formControl]="searchControl"
             placeholder="Search Music...">
           </mat-form-field>
-        </form>
       </mat-card-content>
     </mat-card>
   </div>

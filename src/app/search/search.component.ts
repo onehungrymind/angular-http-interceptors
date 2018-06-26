@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../shared/spotify.service';
 import { Artist } from '../shared/artist';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { map, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
@@ -10,28 +12,43 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SearchComponent implements OnInit {
   searchRes: Artist[];
-  searchStr: string;
   access_token: string;
-  replace = `${window.location.protocol}//${window.location.host}/search`;
+  form: FormGroup;
+  searchControl: FormControl = new FormControl();
 
-  constructor(private spotifyService: SpotifyService,
-              private route: ActivatedRoute) { }
+  constructor(
+    private spotifyService: SpotifyService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    if (this.route.snapshot.fragment) {
+      this.callback();
+    }
+    this.searchMusic();
+  }
+
+  searchMusic() {
+    this.searchControl.valueChanges.pipe(
+      tap(changes => console.log('Changes', changes)),
+      debounceTime(500),
+      distinctUntilChanged(),
+      map((event: any) => event),
+      switchMap(qq => this.spotifyService.searchMusic(qq))
+    ).subscribe(res => this.searchRes = res.artists.items);
+  }
+
+  selectArtist(artist: string) {
+    window.open(artist, '_blank');
+  }
+
+  callback() {
+    const replace = `${window.location.protocol}//${window.location.host}/search`;
+
     this.access_token = this.route.snapshot.fragment
       .split('access_token=')[1]
       .split('&token')[0];
     localStorage.setItem('access_token', this.access_token);
-    window.history.replaceState({}, document.title, this.replace);
-  }
-
-  searchMusic() {
-    this.spotifyService.searchMusic(this.searchStr)
-      .subscribe(res => this.searchRes = res.artists.items);
-  }
-
-  selectArtist(artist: string) {
-    window.history.replaceState({}, document.title, this.replace);
-    window.open(artist, '_blank');
+    window.history.replaceState({}, document.title, replace);
   }
 }
