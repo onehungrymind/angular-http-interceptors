@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../shared/spotify.service';
 import { Artist } from '../shared/artist';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { map, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Component({
@@ -11,9 +11,8 @@ import { map, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operato
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  searchRes: Artist[];
   access_token: string;
-  form: FormGroup;
+  searchRes: Artist[];
   searchControl: FormControl = new FormControl();
 
   constructor(
@@ -33,13 +32,9 @@ export class SearchComponent implements OnInit {
     this.searchControl.valueChanges.pipe(
       debounceTime(500),
       distinctUntilChanged(),
-      map((event: any) => event),
+      map(event => event),
       switchMap(qq => this.spotifyService.searchMusic(qq))
     ).subscribe(res => this.searchRes = res.artists.items);
-  }
-
-  selectArtist(artist: string) {
-    window.open(artist, '_blank');
   }
 
   callback() {
@@ -49,4 +44,9 @@ export class SearchComponent implements OnInit {
     localStorage.setItem('access_token', this.access_token);
     this.router.navigate(['/search'], { queryParams: {} });
   }
+
+  selectArtist(artist: string) {
+    window.open(artist, '_blank');
+  }
+
 }

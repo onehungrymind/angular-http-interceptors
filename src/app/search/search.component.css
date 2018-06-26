@@ -6,7 +6,7 @@ hr {
   width: 80%;
   border: 0;
   height: 1px;
-  background-image: linear-gradient(to right, #ff40806e, #ff4081, #ff40806e);
+  background-image: linear-gradient(to right, #ff408059, #ff4081, #ff408059);
 }
 
 mat-form-field {

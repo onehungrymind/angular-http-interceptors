@@ -7,13 +7,8 @@ const BASE_URL = 'https://api.spotify.com/v1';
 
 @Injectable()
 export class SpotifyService {
-  access_token;
 
   constructor(private http: HttpClient) {}
-
-  setToken(accessToken: string) {
-    this.access_token = accessToken;
-  }
 
   searchMusic(str: string) {
     const URL = `${BASE_URL}/search/`;
@@ -22,7 +17,7 @@ export class SpotifyService {
                    .append('type', 'artist')
                    .append('limit', '20');
 
-    return this.http.get<Artist>(`${URL}`, { params })
+    return this.http.get<Artist>(URL, { params })
       .pipe(map(res => res));
   }
 }
