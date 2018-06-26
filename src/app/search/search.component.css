@@ -2,11 +2,15 @@ mat-card {
   padding-top: 0;
 }
 
+mat-card-title h1 {
+  margin-bottom: 0;
+}
+
 hr {
   width: 80%;
   border: 0;
   height: 1px;
-  background-image: linear-gradient(to right, #ff408059, #ff4081, #ff408059);
+  background-image: linear-gradient(to right, #ff408062, #ff40809d, #ff4081, #ff40809d, #ff408062);
 }
 
 mat-form-field {
