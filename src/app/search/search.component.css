@@ -23,13 +23,6 @@ mat-form-field {
   margin-right: 6px;
 }
 
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
-}
-
 .search-card {
   grid-column: 4/7;
   grid-row: 1;
