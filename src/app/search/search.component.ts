@@ -23,7 +23,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     if (this.route.snapshot.fragment) {
-      this.callback();
+      this.handleAccessToken();
     }
     this.searchMusic();
   }
@@ -37,7 +37,7 @@ export class SearchComponent implements OnInit {
     ).subscribe(res => this.searchRes = res.artists.items);
   }
 
-  callback() {
+  handleAccessToken() {
     this.accessToken = this.route.snapshot.fragment
       .split('access_token=')[1]
       .split('&token')[0];
