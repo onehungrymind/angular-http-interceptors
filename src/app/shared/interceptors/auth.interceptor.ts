@@ -4,7 +4,6 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpResponse,
   HttpErrorResponse
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -18,11 +17,9 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request)
-      .pipe(tap((event: HttpEvent<any>) => {
-      if (event instanceof HttpResponse) {
-        // return;
-      }
-    }, (err: any) => {
+      .pipe(tap(() => {
+
+       }, (err: any) => {
       if (err instanceof HttpErrorResponse) {
         if (err.status === 401) {
           this.route.navigateByUrl('/login');
