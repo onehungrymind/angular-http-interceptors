@@ -1,4 +1,24 @@
-# AngularHttpInterceptors
+# Angular Http Interceptors
+
+![App Screenshot](src/assets/app-screenshot.png)
+
+## Prerequisites
+
+ * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+ * Node.js v10.5+ and NPM v6.x – we recommend using [NVM (Linux/Mac)](https://github.com/creationix/nvm) or [NVM-Windows (Windows)](https://github.com/coreybutler/nvm-windows)
+
+## Getting Started
+
+```terminal
+git clone https://github.com/onehungrymind/angular-http-interceptors.git
+cd angular-http-interceptors
+npm install
+npm start
+```
+
+Navigate to [localhost:4200](http://localhost:4200) in your favorite browser.
+
+> Note: the above terminal commands are for Mac. Remember to substitute the appropriate commands for your OS.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
