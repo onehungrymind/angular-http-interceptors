@@ -12,7 +12,7 @@ import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Injectable()
-export class JwtInterceptor implements HttpInterceptor {
+export class AuthInterceptor implements HttpInterceptor {
 
   constructor(private route: Router) { }
 

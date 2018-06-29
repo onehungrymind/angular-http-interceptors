@@ -9,7 +9,7 @@ import { AppMaterialModule } from './app-material.module';
 
 import { SpotifyService } from './shared/spotify.service';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
-import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -39,7 +39,7 @@ import { SearchComponent } from './search/search.component';
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptor,
+      useClass: AuthInterceptor,
       multi: true
     }
   ],
