@@ -11,7 +11,7 @@ import { map, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operato
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  access_token: string;
+  accessToken: string;
   searchRes: Artist[];
   searchControl: FormControl = new FormControl();
 
@@ -38,10 +38,10 @@ export class SearchComponent implements OnInit {
   }
 
   callback() {
-    this.access_token = this.route.snapshot.fragment
+    this.accessToken = this.route.snapshot.fragment
       .split('access_token=')[1]
       .split('&token')[0];
-    localStorage.setItem('access_token', this.access_token);
+    localStorage.setItem('accessToken', this.accessToken);
     this.router.navigate(['/search'], { queryParams: {} });
   }
 
